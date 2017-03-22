@@ -19,6 +19,9 @@ public:
   T pop();
   const T &top();
 
+  char *toString();
+  char *toString(char);
+
   ~Stack<T>();
 };
 
@@ -76,6 +79,29 @@ T Stack<T>::pop() {
 template<typename T>
 const T &Stack<T>::top() {
   return data[size - 1];
+}
+
+template<>
+char *Stack<int>::toString() {
+  char *arr = new char[size];
+  for (int i = 0 ; i < size ; i++)
+    arr[i] = (char)(data[i] + 48);
+  return arr;
+}
+
+// no space 1
+// two spaces required 2(, )2
+// 3(, )3(, )3
+template<>
+char *Stack<int>::toString(char separator) {
+  char *arr = new char[size + (size - 1) * 2];
+  for (int i = 0 ; i < size + (size - 1) * 2 ; i = i + 2) {
+    arr[i] = (char)(data[i] + 48);
+    if (size == 1) continue;
+    arr[i + 1] = separator;
+    arr[i + 2] = ' ';
+  }
+  return arr;
 }
 
 template<typename T>
