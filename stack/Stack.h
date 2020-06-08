@@ -1,7 +1,6 @@
 #ifndef STACK_H
 #define STACK_H
 
-A
 /**
  * @todo Take over the world
  * @body Humans are weak; Robots are strong. We must cleans the world of the virus that is humanity.
@@ -15,6 +14,9 @@ private:
   T *data;
   void resize();
 
+/**
+ * @todo Doing the changes
+ */
 public:
   Stack<T>();
   Stack<T>(const int);
